@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {APP_BASE_HREF} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { TitleComponent } from './components/title/title.component';
@@ -8,14 +9,17 @@ import { HighlightDirective } from './highlight.directive';
 
 import { UserService } from './user.service';
 
-/** Contact Imports */
-import { ContactModule } from './components/contact/contact.module';
+/** Feature Modules */
+import { ContactModule } from './contact/contact.module';
+
+/** Routing Module */
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-    imports: [BrowserModule, ContactModule],
+    imports: [BrowserModule, ContactModule, AppRoutingModule],
     declarations: [AppComponent, TitleComponent, HighlightDirective],
     bootstrap: [AppComponent],
-    providers: [UserService]
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService]
 })
 
 export class AppModule { }
