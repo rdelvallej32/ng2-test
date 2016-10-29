@@ -6,10 +6,13 @@ import { TitleComponent } from './components/title/title.component';
 
 import { HighlightDirective } from './highlight.directive';
 
+import { UserService } from './user.service';
+
 @NgModule({
     imports: [BrowserModule],
     declarations: [AppComponent, TitleComponent, HighlightDirective],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    providers: [UserService]
 })
 
 export class AppModule { }
