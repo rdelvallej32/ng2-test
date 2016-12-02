@@ -5,21 +5,23 @@ import {APP_BASE_HREF} from '@angular/common';
 import { AppComponent } from './app.component';
 import { TitleComponent } from './components/title/title.component';
 
-import { HighlightDirective } from './highlight.directive';
-
-import { UserService } from './user.service';
-
 /** Feature Modules */
 import { ContactModule } from './contact/contact.module';
+import { CoreModule } from './core/core.module';
 
 /** Routing Module */
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-    imports: [BrowserModule, ContactModule, AppRoutingModule],
-    declarations: [AppComponent, TitleComponent, HighlightDirective],
+    imports: [
+        BrowserModule,
+        ContactModule,
+        AppRoutingModule,
+        CoreModule.forRoot({ userName: 'Miss Marple' })
+    ],
+    declarations: [AppComponent, TitleComponent],
     bootstrap: [AppComponent],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService]
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
 })
 
 export class AppModule { }
